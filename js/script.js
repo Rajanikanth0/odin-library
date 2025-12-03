@@ -24,7 +24,7 @@ function addBookToPage() {
     const book = document.createElement("div");
     book.className = "book";
 
-    book.innerHTML = `<h2 class="title">${temp.title}</h2><p>by <span class="author">${temp.author}</span></p><code><span class="pages">${temp.pages}</span> pages, <span class="read">${temp.read}</span></code>`;
+    book.innerHTML = `<div class="top"><h2 class="title">${temp.title}</h2><p>by <span class="author">${temp.author}</span></p></div><code><span class="pages">${temp.pages}</span> pages, <span class="read">${temp.read}</span></code>`;
 
     shelf.appendChild(book);
   }

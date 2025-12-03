@@ -16,6 +16,7 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-auto-rows: 9rem;
 }
 
 .book {
@@ -23,6 +24,10 @@
   padding: 1rem;
   box-shadow: 0 0.2rem 0.2rem rgb(228, 228, 228);
   border-radius: 0 0.5rem 0.5rem 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .book .title {
   font-family: "roboto";
