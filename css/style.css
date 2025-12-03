@@ -3,6 +3,26 @@
   padding: 0;
   box-sizing: border-box;
 }
-html {
-  /* font-family: sans-serif; */
+
+.shelf {
+  background-color: rgb(241, 245, 244);
+  padding: 1rem;
+
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.book {
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 0.2rem 0.2rem rgb(228, 228, 228);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.book .author {
+  color: seagreen;
+  font-weight: bold;
+}
+.book .pages {
+  color: orange;
 }
