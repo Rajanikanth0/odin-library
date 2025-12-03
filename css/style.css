@@ -8,6 +8,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  font-size: 2em;
+}
 
 .shelf {
   background-color: rgb(241, 245, 244);
@@ -43,6 +46,7 @@
 }
 
 .new-button {
+  font-size: 1.4em;
   border: none;
   padding: 0.5rem 1rem;
   background-color: lightblue;
