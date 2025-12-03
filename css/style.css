@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "roboto";
+  src: url("../media/roboto-regular-webfont.woff2") format("woff2");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +24,12 @@
   box-shadow: 0 0.2rem 0.2rem rgb(228, 228, 228);
   border-radius: 0 0.5rem 0.5rem 0;
 }
+.book .title {
+  font-family: "roboto";
+  margin-bottom: 0.5rem;
+}
 .book .author {
+  font-family: sans-serif;
   color: seagreen;
   font-weight: bold;
 }
