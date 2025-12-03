@@ -15,7 +15,7 @@
 
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-auto-rows: 9rem;
 }
 
@@ -47,4 +47,26 @@
   border: none;
   padding: 0.5rem 1rem;
   background-color: lightblue;
+}
+
+dialog {
+  padding: 1rem;
+  /* to center the dialog box */
+  margin: auto;
+}
+
+/* form elements */
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1.5rem;
+  gap: 1rem;
+}
+
+form > button {
+  grid-column: span 2;
+}
+
+input {
+  padding-left: 0.4rem;
 }
