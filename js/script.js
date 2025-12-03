@@ -6,9 +6,7 @@ function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
   
   this.info = function() {
-    const text = `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
-
-    return text;
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
   }
 }
 
@@ -34,6 +32,9 @@ function addBookToPage() {
 }
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true);
-addBookToLibrary("Harry Potter", "P.S. Dumbole Dore", 816, false);
+addBookToLibrary("Harry City", "P.S. Pray Silicon", 816, false);
+addBookToLibrary("Songs of Road", "W.H.O My Self", 190, true);
+addBookToLibrary("Many Returns Of the Day", "Silver Liner S.S", 572, false);
+addBookToLibrary("Solar Panel Rays", "Dr. John Wonder Lee", 356, true);
 
 addBookToPage();
