@@ -20,7 +20,21 @@ function addBookToLibrary(title, author, pages, read) {
   bookLibrary.push(book);
 }
 
+function addBookToPage() {
+  const shelf = document.querySelector(".shelf");
+
+  for (const temp of bookLibrary) {
+    const book = document.createElement("div");
+    book.className = "book";
+
+    book.innerHTML = `<h2 class="title">${temp.title}</h2><p>by <span class="author">${temp.author}</span></p><code><span class="pages">${temp.pages}</span> pages, <span class="read">${temp.read}</span></code>`;
+
+    shelf.appendChild(book);
+  }
+
+}
+
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true);
 addBookToLibrary("Harry Potter", "P.S. Dumbole Dore", 816, false);
 
-console.log(bookLibrary);
+addBookToPage();
