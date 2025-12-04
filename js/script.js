@@ -31,11 +31,15 @@ function addBookToPage() {
 
 }
 
+/* opens dialog box */
 function newButtonClicked(e) {
   e.preventDefault();
-
-  const dialog = document.querySelector("dialog");
   dialog.showModal();
+}
+
+/* handle form submission */
+function submitBook(e) {
+  console.dir(dialog);
 }
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true);
@@ -47,5 +51,8 @@ addBookToLibrary("Solar Panel Rays", "Dr. John Wonder Lee", 356, true);
 addBookToPage();
 
 const newButton = document.querySelector(".new-button");
+const dialog = document.querySelector("dialog");
+const submitButton = document.querySelector("form > :last-child");
 
 newButton.addEventListener("click", newButtonClicked);
+submitButton.addEventListener("click", submitBook);
