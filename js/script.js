@@ -31,15 +31,12 @@ function addBookToPage() {
 
 }
 
-/* opens dialog box */
-function newButtonClicked(e) {
-  e.preventDefault();
-  dialog.showModal();
-}
-
 /* handle form submission */
 function submitBook(e) {
-  console.dir(dialog);
+  const data = new FormData(document.querySelector("form"));
+  const input = Array.from( data.values() );
+
+  addBookToLibrary(...input);
 }
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true);
@@ -52,7 +49,10 @@ addBookToPage();
 
 const newButton = document.querySelector(".new-button");
 const dialog = document.querySelector("dialog");
-const submitButton = document.querySelector("form > :last-child");
+const form = document.querySelector("form");
+const closeButton = form.firstElementChild;
 
-newButton.addEventListener("click", newButtonClicked);
-submitButton.addEventListener("click", submitBook);
+newButton.addEventListener("click", () => dialog.showModal());
+closeButton.addEventListener("click", () => dialog.close());
+
+form.addEventListener("submit", submitBook);
