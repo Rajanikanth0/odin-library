@@ -21,6 +21,7 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-auto-rows: 10rem;
 }
 
 .book {
@@ -84,13 +85,8 @@ input {
   gap: 1rem;
 }
 .remove-book, .toggle-read {
-  color: rgb(107, 107, 107);
-  font-family: "roboto";
-  padding: 0 0.4rem;
-  border: thin solid rgb(224, 224, 224);
-  background-color: rgb(242, 255, 242);
-  box-shadow: 0 0 0.2rem rgb(228, 228, 228);
-  border-radius: 0.3rem;
+  padding: 0 1rem;
+  /* align-self: center; */
 }
 .toggle-read {
   flex: 1;
@@ -98,4 +94,10 @@ input {
 
 button {
   cursor: pointer;
+  color: rgb(107, 107, 107);
+  font-family: "roboto";
+  border: none;
+  background-color: rgb(242, 255, 242);
+  box-shadow: 0 0.1rem 0.1rem rgb(201, 201, 201);
+  border-radius: 0.3rem;
 }

@@ -36,6 +36,7 @@ function addBookToPage() {
     clone.querySelector(".author").textContent = book.author;
     clone.querySelector(".pages").textContent = book.pages;
     clone.querySelector(".read").textContent = boolToString(book.read);
+    clone.querySelector(".toggle-read").textContent = boolToString(!book.read);
 
     clone.dataset.id = book.id;
 
@@ -76,6 +77,7 @@ shelf.addEventListener("click", function(e) {
     const bookIndex = bookLibrary.findIndex(item => item.id == book.dataset.id);
     bookLibrary[bookIndex].toggleRead();
 
+    e.target.textContent = book.querySelector(".read").textContent;
     book.querySelector(".read").textContent = boolToString(bookLibrary[bookIndex].read);
   }
 });
