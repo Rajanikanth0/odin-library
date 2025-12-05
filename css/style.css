@@ -74,7 +74,13 @@ input {
   padding: 0.4rem;
 }
 
-.remove-book {
-  justify-self: end;
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+}
+.remove-book, .toggle-read {
   padding: 0 0.4rem;
+}
+.toggle-read {
+  flex: 1;
 }
