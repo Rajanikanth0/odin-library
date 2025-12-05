@@ -16,17 +16,24 @@ function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   bookLibrary.push(book);
 
-  addBookToPage(book);
+  addBookToPage();
 }
 
-function addBookToPage(newBook) {
+function addBookToPage() {
   const shelf = document.querySelector(".shelf");
+  const box = document.createDocumentFragment();
 
-  const book = document.createElement("div");
-  book.className = "book";
-  book.innerHTML = `<div class="top"><h2 class="title">${newBook.title}</h2><p>by <span class="author">${newBook.author}</span></p></div><code><span class="pages">${newBook.pages}</span> pages, <span class="read">${newBook.read}</span></code>`;
+  for (const book of bookLibrary) {
+    const div = document.createElement("div");
+    div.className = "book";
+    div.innerHTML = `<div class="top"><h2 class="title">${book.title}</h2><p>by <span class="author">${book.author}</span></p></div><code><span class="pages">${book.pages}</span> pages, <span class="read">${book.read}</span></code>`;
 
-  shelf.appendChild(book);
+    box.appendChild(div);
+  }
+
+  // re-structure the shelf
+  shelf.textContent = "";
+  shelf.appendChild(box);
 }
 
 /* handle form submission */
