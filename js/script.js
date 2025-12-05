@@ -2,12 +2,21 @@ function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = read ? "already read": "not read yet";
+  this.read = read;
   this.id = crypto.randomUUID();
   
   this.info = function() {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+    const read = boolToString(this.read);
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${read}`;
   }
+}
+
+Book.prototype.toggleRead = function() {
+  this.read = !this.read;
+}
+
+function boolToString(read) {
+  return (read) ? "already read": "not read yet";
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -26,9 +35,9 @@ function addBookToPage() {
     clone.querySelector(".title").textContent = book.title;
     clone.querySelector(".author").textContent = book.author;
     clone.querySelector(".pages").textContent = book.pages;
-    clone.querySelector(".read").textContent = book.read;
+    clone.querySelector(".read").textContent = boolToString(book.read);
 
-    clone.querySelector(".remove-book").dataset.id = book.id;
+    clone.dataset.id = book.id;
 
     box.appendChild(clone);
   }
@@ -56,11 +65,18 @@ const shelf = document.querySelector(".shelf");
 newButton.addEventListener("click", () => dialog.showModal());
 closeButton.addEventListener("click", () => dialog.close());
 shelf.addEventListener("click", function(e) {
-  const target = e.target;
+  const book = e.target.parentElement.parentElement;
 
-  if (target.className == "remove-book") {
-    bookLibrary = bookLibrary.filter(item => item.id != target.dataset.id);
-    shelf.removeChild(target.parentElement);
+  if (e.target.className == "remove-book") {
+    bookLibrary = bookLibrary.filter(item => item.id != book.dataset.id);
+    shelf.removeChild(book);
+  }
+
+  if (e.target.className == "toggle-read") {
+    const bookIndex = bookLibrary.findIndex(item => item.id == book.dataset.id);
+    bookLibrary[bookIndex].toggleRead();
+
+    book.querySelector(".read").textContent = boolToString(bookLibrary[bookIndex].read);
   }
 });
 
