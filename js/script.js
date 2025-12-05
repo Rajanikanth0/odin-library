@@ -24,11 +24,14 @@ function addBookToPage() {
   const box = document.createDocumentFragment();
 
   for (const book of bookLibrary) {
-    const div = document.createElement("div");
-    div.className = "book";
-    div.innerHTML = `<div class="top"><h2 class="title">${book.title}</h2><p>by <span class="author">${book.author}</span></p></div><code><span class="pages">${book.pages}</span> pages, <span class="read">${book.read}</span></code>`;
+    // first book is the template
+    const clone = shelf.firstElementChild.cloneNode(true);
+    clone.querySelector(".title").textContent = book.title;
+    clone.querySelector(".author").textContent = book.author;
+    clone.querySelector(".pages").textContent = book.pages;
+    clone.querySelector(".read").textContent = book.read;
 
-    box.appendChild(div);
+    box.appendChild(clone);
   }
 
   // re-structure the shelf
