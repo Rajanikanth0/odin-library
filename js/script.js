@@ -61,6 +61,30 @@ function submitBook() {
   Book.addBookToLibrary(...input);
 }
 
+function validateFormFields() {
+  const fields = [
+    { id: "book-title", message: "Book title not found!" },
+    { id: "author-name", message: "Author name not found!" },
+    { id: "pages", message: "No. of Pages not found!", patternMessage: "Numbers only!" }
+  ];
+
+  fields.forEach(({id, message, patternMessage}) => {
+    const element = document.getElementById(id);
+    // missing initial required field
+    element.setCustomValidity(message);
+
+    element.addEventListener("input", () => {
+      if (element.validity.valueMissing) {
+        element.setCustomValidity(message);
+      } else if (element.validity.patternMismatch && patternMessage) {
+        element.setCustomValidity(patternMessage);
+      } else {
+        element.setCustomValidity("");
+      }
+    });
+  });
+}
+
 function actionButtons(e) {
   const book = e.target.parentElement.parentElement;
   const shelf = document.querySelector(".shelf");
@@ -90,6 +114,7 @@ newButton.addEventListener("click", () => dialog.showModal());
 closeButton.addEventListener("click", () => dialog.close());
 
 shelf.addEventListener("click", actionButtons);
+validateFormFields();
 form.addEventListener("submit", submitBook);
 
 Book.addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true);
